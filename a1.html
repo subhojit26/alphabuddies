@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>hangwriting.js</title>
+    <style>
+        /* Spinner CSS */
+        .spinner {
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #333;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <span style="display: inline-block;">
+        <p>This is canvas 1 (Undo, Redo enabled)</p>
+        PenSize<input type="range" id="penSize" min="2" max="30" value="3">
+        <span id="lineWidth">3</span><br>
+
+        <canvas id="can" width="400" height="400" style="border: 2px solid; cursor: crosshair;"></canvas>
+        <br>
+        <button onclick="sendData()">Send</button>
+        <button onclick="can1.undo()">Undo</button>
+        <button onclick="can1.redo()">Redo</button>
+        <br>
+        <!-- Spinner -->
+        <div id="spinner" class="spinner"></div>
+        <br>
+        result: <span id="result1"></span>
+    </span>
+
+    <script type="text/javascript" src="./handwriting.canvas.js"></script>
+    <script type="text/javascript">
+        var can1 = new handwriting.Canvas(document.getElementById("can"), 3);
+        can1.setCallBack(function(data, err) {
+            if (err) throw err;
+            else {
+                document.getElementById("result1").innerHTML = data;
+                document.getElementById("spinner").style.display = "none"; // Hide spinner
+
+                // Get the filename
+                var fileName = window.location.pathname.split('/').pop();
+                // Get the first character of the filename
+                var firstLetter = fileName.charAt(0);
+
+                // Check if the result matches the first letter of the filename
+                if (typeof data === 'string' && data.toLowerCase() === firstLetter.toLowerCase()) {
+            // Redirect to the correct answer page
+            window.location.href = "correct_answer.html";
+        }
+            }
+        });
+        can1.set_Undo_Redo(true, true);
+
+        function sendData() {
+            document.getElementById("spinner").style.display = "block"; // Show spinner
+            can1.setOptions({ language: 'en' });
+            can1.recognize();
+        }
+
+        var penSize = document.getElementById("penSize");
+        penSize.addEventListener("mousemove", function() {
+            document.getElementById("lineWidth").innerHTML = penSize.value;
+        });
+        penSize.addEventListener("change", function() {
+            can1.setLineWidth(penSize.value);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Names with Speaker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .color-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .color-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+        .color-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .color-name {
+            font-size: 18px;
+            margin-right: 20px;
+        }
+        .speaker-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="color-list">
+            <li class="color-item">
+                <div class="color-circle" style="background-color: red;"></div>
+                <div class="color-name">Red</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Red" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: blue;"></div>
+                <div class="color-name">Blue</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Blue" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: green;"></div>
+                <div class="color-name">Green</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Green" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: yellow;"></div>
+                <div class="color-name">Yellow</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Yellow" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: orange;"></div>
+                <div class="color-name">Orange</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Orange" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: purple;"></div>
+                <div class="color-name">Purple</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Purple" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: pink;"></div>
+                <div class="color-name">Pink</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Pink" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: brown;"></div>
+                <div class="color-name">Brown</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Brown" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: gray;"></div>
+                <div class="color-name">Gray</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Gray" alt="Speaker">
+            </li>
+            <li class="color-item">
+                <div class="color-circle" style="background-color: black;"></div>
+                <div class="color-name">Black</div>
+                <img class="speaker-icon" src="https://img.icons8.com/android/24/000000/speaker.png" data-text="Black" alt="Speaker">
+            </li>
+        </ul>
+    </div>
+
+    <!-- JavaScript for text-to-speech -->
+    <script>
+        // Function to convert text to speech
+        function speak(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+        }
+
+        // Attach click event listener to all speaker icons
+        const speakerIcons = document.querySelectorAll('.speaker-icon');
+        speakerIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const text = icon.getAttribute('data-text');
+                speak(text);
+            });
+        });
+    </script>
+</body>
+</html>
