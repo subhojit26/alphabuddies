@@ -61,7 +61,7 @@
             border-radius: 10px;
         }
         .morph1:hover {
-        filter: drop-shadow(0 0 8px rgba(194, 47, 175, 0.9)); /* Adjust the values as needed */
+        filter: drop-shadow(0 0 8px rgba(218, 50, 167, 0.9)); /* Adjust the values as needed */
         transition: filter 0.3s ease-in-out; /* Add a smooth transition effect */
         }
         .morph2:hover {
@@ -81,7 +81,15 @@
             <div class=" flex py-2 justify-between my-auto">
                 <p><i class="fa-solid fa-arrow-down-a-z"></i></p>
                 <h1 class="font-bold text-3xl text-black mt-4 text-left ">AlphaBuddies</h1>
-
+                <div>
+                    <select id="languageSelect" class="bg-white rounded border border-gray-300 py-2 px-4">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="hi">Hindi</option>
+                        <option value="bn">Bengali</option>
+                        <!-- Add more language options as needed -->
+                    </select>
+                </div>
                 <a class="mb-4" href="/settings.html">
                     <i class="fa-solid fa-gear fa-xl"></i>
                 </a>
@@ -112,7 +120,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="/draw.html" id="takeTest">
+                <a href="/taketest.html" id="takeTest">
                     <div class="bg-[#FFD233] morph3 p-4 rounded-lg text-black w-[100%] h-[200px]">
                         <h2 class="text-3xl font-semibold m-5">Take Test</h2>
                         <div class="flex flex-row justify-end my-auto">
@@ -124,26 +132,62 @@
         </div>
     </div>
     <script>
+        // Translated texts stored in an object
+        const translations = {
+            en: {
+                listenLearn: 'Listen and Learn',
+                takeTest: 'Take Test',
+                drawlearn: 'Draw and Learn'
+            },
+            es: {
+                listenLearn: 'Escuchar y aprender',
+                takeTest: 'Tomar prueba',
+                drawlearn: 'Dibujar y aprender'
+            },
+            hi: {
+            listenLearn: 'सुनो और सीखो',
+            takeTest: 'परीक्षा दो',
+            drawlearn: 'बनाओ और सीखो'
+        },
+        bn: {
+            listenLearn: 'শুনুন এবং শেখুন',
+            takeTest: 'পরীক্ষা নিন',
+            drawlearn: 'আঁকো এবং শেখো'
+        }
+            // Add more translations for other languages as needed
+        };
+    
         const listenLearn = document.getElementById('listenLearn');
         const takeTest = document.getElementById('takeTest');
         const drawlearn = document.getElementById('drawlearn');
-        function speak(text) {
-            const synth = window.speechSynthesis;
-            const utterance = new SpeechSynthesisUtterance(text);
-            synth.speak(utterance);
+        const languageSelect = document.getElementById('languageSelect');
+    
+        // Function to speak translated text
+        function speakTranslatedText(text, language) {
+            if (text) {
+                const synth = window.speechSynthesis;
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = language;
+                synth.speak(utterance);
+            }
         }
-
+    
         listenLearn.addEventListener('mouseenter', function() {
-            speak('Listen and Learn');
+            const text = translations[languageSelect.value].listenLearn;
+            speakTranslatedText(text, languageSelect.value);
         });
-
+    
         takeTest.addEventListener('mouseenter', function() {
-            speak('Take Test');
+            const text = translations[languageSelect.value].takeTest;
+            speakTranslatedText(text, languageSelect.value);
         });
+    
         drawlearn.addEventListener('mouseenter', function() {
-            speak('Draw and Learn');
+            const text = translations[languageSelect.value].drawlearn;
+            speakTranslatedText(text, languageSelect.value);
         });
     </script>
+    
 </body>
 
 </html>

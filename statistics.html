@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags, title, stylesheets, etc. -->
+</head>
+<body>
+  <h1>Statistics</h1>
+  <p>Correct Answers: <span id="correctCount"></span></p>
+  <p>Incorrect Answers: <span id="incorrectCount"></span></p>
+  <p>Accuracy: </p>
+
+  <script>
+    // Retrieve counts from localStorage and display
+    var correctCount = localStorage.getItem("correctCount") || 0;
+    var incorrectCount = localStorage.getItem("incorrectCount") || 0;
+    // Calculate accuracy
+    // if accuracy is less than 20% then display "You need to practice more"
+    // if accuracy is between 20% and 50% then display "You are getting there"
+    // if accuracy is between 50% and 80% then display "Good job"
+    // if accuracy is between 80% and 100% then display "Excellent work"
+    // if accuracy is 100% then display "Perfect score"
+
+
+    var total = parseInt(correctCount) + parseInt(incorrectCount);
+    document.getElementById("correctCount").innerText = correctCount;
+    document.getElementById("incorrectCount").innerText = incorrectCount;
+    document.querySelector("p:last-of-type").innerText += ((correctCount / total) * 100).toFixed(2) + "%";
+
+    // print in separate line the message based on accuracy
+    if (total === 0) {
+      document.querySelector("p:last-of-type").innerText += "You need to practice more";
+    } else if ((correctCount / total) * 100 < 20) {
+      document.querySelector("p:last-of-type").innerText += "You need to practice more";
+    } else if ((correctCount / total) * 100 < 50) {
+      document.querySelector("p:last-of-type").innerText += "You are getting there";
+    } else if ((correctCount / total) * 100 < 80) {
+      document.querySelector("p:last-of-type").innerText += "Good job";
+    } else if ((correctCount / total) * 100 < 100) {
+      document.querySelector("p:last-of-type").innerText += "Excellent work";
+    } else {
+      document.querySelector("p:last-of-type").innerText += "Perfect score";
+    }
+  </script>
+</body>
+</html>
