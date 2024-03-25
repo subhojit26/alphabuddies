@@ -11,14 +11,8 @@
 
   <script>
     // Retrieve counts from localStorage and display
-    var correctCount = localStorage.getItem("correctCount") || 0;
-    var incorrectCount = localStorage.getItem("incorrectCount") || 0;
-    // Calculate accuracy
-    // if accuracy is less than 20% then display "You need to practice more"
-    // if accuracy is between 20% and 50% then display "You are getting there"
-    // if accuracy is between 50% and 80% then display "Good job"
-    // if accuracy is between 80% and 100% then display "Excellent work"
-    // if accuracy is 100% then display "Perfect score"
+    var correctCount = localStorage.getItem("correct") || 0;
+    var incorrectCount = localStorage.getItem("incorrect") || 0;
 
 
     var total = parseInt(correctCount) + parseInt(incorrectCount);
