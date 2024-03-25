@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; 
+    /* image called background.gif in src folder */
+    background-image: url('background.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; /* Disable vertical scrolling */
+}
+
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Start with normal size */
+    }
+    50% {
+        transform: scale(1.2); /* Grow to 20% larger size */
+    }
+    100% {
+        transform: scale(1); /* Return to normal size */
+    }
+}
+
+/* Apply animation to the button */
+.hero .button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ef1010;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.5s ease; /* Include transform property for animation */
+    animation: pulse 2s infinite; /* Apply pulse animation infinitely */
+}
+
+/* Change button color on hover */
+.hero .button:hover {
+    background-color: #e65300; /* Darker orange on hover */
+    animation: none; /* Disable animation on hover */
+}
+
+.interactive, .interactive-2 {
+    position: absolute;
+    top: 50%;
+    width: 200px; /* Adjust size as needed */
+    transform: translateY(-50%);
+}
+
+.interactive {
+    left: 10%; /* Adjust left positioning */
+    bottom: 0%; /* Adjust bottom positioning */
+}
+
+.interactive-2 {
+    top: 80%; /* Adjust top positioning */
+    right: 10%; /* Adjust right positioning */
+}
+
+.interactive img, .interactive-2 img {
+    width: 100%; /* Adjust size as needed */
+    height: auto;
+}
+
+/* CSS for sliding out animations */
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.slide-out-left {
+    animation: slideOutLeft 1s forwards;
+}
+
+.slide-out-right {
+    animation: slideOutRight 1s forwards;
+}
