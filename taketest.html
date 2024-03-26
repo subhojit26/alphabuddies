@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1510e22962.js" crossorigin="anonymous"></script>
     <title>AlphaBuddies</title>
-    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="style/output.css">
     <style>
         body {
             margin: 0;
@@ -57,7 +57,7 @@
                         <option value="bn">Bengali</option>
                     </select>
                 </div>
-                <a class="mb-4" href="/settings.html">
+                <a class="mb-4" href="settings.html">
                     <i class="fa-solid fa-gear fa-xl"></i>
                 </a>
             </div>
@@ -65,11 +65,11 @@
     </nav>
     <div class="container morph mt-10  mx-auto">
         <p class="m-5 font-bold text-4xl mx-auto text-center  text-zinc-600 flex justify-center items-center">
-            <img src="/src/hello.gif" alt="Small Image" style="width: 80px; height: 80px; margin-right: 5px;" />
+            <img src="src/hello.gif" alt="Small Image" style="width: 80px; height: 80px; margin-right: 5px;" />
         </p>
         <div class="grid  grid-rows-2 gap-4 w-[90%] mx-auto">
             <div class="grid grid-cols-2  gap-4">
-                <a href="/draw.html" id="listenLearn">
+                <a href="draw.html" id="listenLearn">
                     <!-- Define card with aria-label for spoken content -->
                     <div class="bg-[#4EE292] morph2 p-4 rounded-lg text-black w-[100%] h-[200px] card"
                         aria-label="Drawing Test">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="/test.html" id="takeTest">
+                <a href="Test-Letters/test.html" id="takeTest">
                     <!-- Define card with aria-label for spoken content -->
                     <div class="bg-[#FFD233] morph3 p-4 rounded-lg text-black w-[100%] h-[200px] card"
                         aria-label="Listening Test">
@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-    <script src="textToSpeech.js"></script>
+    <script src="script/textToSpeech.js"></script>
     <script>
         // Function to execute text-to-speech
         function speakText(text) {

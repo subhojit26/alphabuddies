@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1510e22962.js" crossorigin="anonymous"></script>
     <title>Learnify Alpha</title>
-    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./style/output.css">
     <style>
         .morphnav {
             background: rgba(145, 53, 231, 0.45);
@@ -106,7 +106,7 @@
             // Loop through the alphabets and create cards
             alphabets.forEach((alphabet, index) => {
                 const card = document.createElement("a");
-                card.href = `/${alphabet.toLowerCase()}1.html`;
+                card.href = `/Write-Letters/${alphabet.toLowerCase()}1.html`;
 
                 const cardDiv = document.createElement("div");
                 cardDiv.className = "bg-[#FE93AA] p-2 morph1 rounded-xl text-black w-[100%]";
