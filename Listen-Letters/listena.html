@@ -1,0 +1,304 @@
+<html>
+  <head>
+      <title>Learnify Alpha</title>
+      <link rel="icon" href="src/favicon.png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <link rel="stylesheet" href="/style/style.css" />
+      <script src="https://kit.fontawesome.com/1510e22962.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="/src/output.css">
+
+      <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        nav {
+            background-color: rgba(25, 1, 43, 0.8); /* Use rgba for background color with alpha transparency */
+            backdrop-filter: blur(10px); /* Apply a blur effect to create a glass effect */
+        }
+
+        .container {
+            padding: 20px;
+            
+        }
+        .morph{
+            background: rgba( 199, 143, 243, 0.25 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 7.5px );
+            -webkit-backdrop-filter: blur( 7.5px );
+            border-radius: 10px;
+
+        }
+        .morphnav{
+            background: rgba( 145, 53, 231, 0.45 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 1.5px );
+            -webkit-backdrop-filter: blur( 1.5px );
+
+        }
+        .glass-morphism {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(1px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-right: 5% auto;
+            padding: 200px;
+            
+            width: 120%; /* Adjust as needed */
+        }
+        .glass-morphism1 {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(2px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin:10px;
+            height: 110px;
+            padding: 5px;
+            width: 25%; /* Adjust as needed */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .glass-morphism1:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .glass-morphism h1 {
+            font-size: 19rem;
+            font-weight: bold;
+            margin: 1rem;
+            color: #000; /* Adjust text color as needed */
+            text-align: center;
+        }
+
+        .home{
+            padding: 7px;
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        .home:hover{
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+        .textted{
+            padding-right: 25px;
+        }
+        .top{
+            margin-right: 80px;
+        }
+        
+        
+.pic2 {
+    display: block;
+    margin: auto; /* Center align the image */
+    max-width: 250%; /* Ensure the image doesn't exceed its container */
+    max-height: 190%; /* Ensure the image doesn't exceed its container */
+    margin-top: 1px;
+    margin-right: 59%;
+    padding-right: 10px;
+}
+.pic{
+   
+     /* Center align the image */
+    max-width: 220px; /* Ensure the image doesn't exceed its container */
+    max-height: 270px; /* Ensure the image doesn't exceed its container */
+    margin-right: 200px;
+    
+}
+        .glassy{
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(2px);
+            height: 90px;
+            margin-top: 1px;
+            margin-bottom: 10px;
+            padding: 20px;
+            width: 50%; /* Adjust as needed */
+            transition: all 0.3s ease;
+
+        }
+        .glassy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+        .alll{
+            width:350px;
+            height:200px;
+            padding-right: 80px;
+            
+        }
+        .alp{
+            font-size: 90px;
+        }
+        
+        
+    </style>
+  </head>
+
+  <body>
+    <nav class="w-full morphnav bg-[#C78FF3] p-4 h-[80px]">
+        <div class="flex flex-col mx-auto">
+            <div class="flex py-2 justify-between my-auto">
+              <a class="mb-4" href="/alphabet_speak.html">
+                <i class="fa-solid fa-2xl fa-circle-left  text-black"></i>
+            </a>
+                <h1 class="font-bold text-3xl text-black mt-4 text-left text-black">AlphaBuddies</h1>
+                <a class="mb-4" href="/home.html">
+                    <i class="fa-solid fa-house fa-xl text-black"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+  
+
+  <div class="container">
+    <div class="grid grid-cols-2 gap-2">
+        <!-- Left column for displaying the letter 'A' -->
+        <!-- Left column for displaying the letter 'A' -->
+<div class="mx-auto bg-[#FFD18B] p-4 rounded-lg text-black w-[80%] sm:w-[30%] grid grid-cols-1 glass-morphism alp" onmouseover="speakLetterA()" onmouseleave="resetLetterASpeech ()">
+    <div class="alp flex flex-col justify-center items-center m-5 sm:m-10">
+        <h1 class=" text-4xl font-semibold m-5">A</h1>
+    </div>
+</div>
+
+
+        <!-- Right column for pronunciation buttons -->
+        <div class="flex flex-col justify-center items-center my-10">
+            <!-- Button to speak the pronunciation of the letter 'A' -->
+            <!-- Button to speak the pronunciation of the letter 'A' -->
+            <div class="alll mx-2 glass-morphism1 text-center" onmouseover="speakWordAeroplane()" onmouseleave="resetAeroplaneSpeech()">
+                <button class=" w-12">
+                    <img src="/src/aeroplane.gif" alt="music" class="pic" />
+                </button>
+            </div>
+            
+            <!-- Button to speak a word starting with the letter 'A' -->
+            <div class="alll mx-2 glass-morphism1 text-center" onmouseover="speakWordApple()" onmouseleave="resetAppleSpeech()">
+                <button class="w-12">
+                    <img src="/src/apples.gif" alt="music" class="pic2" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+<script>
+    // Function to speak the letter 'A'
+    function speakLetterA() {
+        pronounceLetter('A');
+        // Remove the event listener after speaking
+        document.querySelector('.alp').removeEventListener('mouseenter', speakLetterA);
+    }
+
+    // Function to speak the word 'Apple'
+    function speakWordApple() {
+        pronounceWord('Apple');
+        // Remove the event listener after speaking
+        document.querySelector('.pic2').removeEventListener('mouseenter', speakWordApple);
+    }
+
+    // Function to pronounce a given letter or word
+    function pronounceLetter(letter) {
+        if ('speechSynthesis' in window) {
+            var utterance = new SpeechSynthesisUtterance(letter);
+            utterance.voice = speechSynthesis.getVoices()[3];
+            speechSynthesis.speak(utterance);
+        } else {
+            alert('Speech synthesis is not supported in your browser. Please use a different browser.');
+        }
+    }
+
+    // Function to pronounce a given word
+    function pronounceWord(word) {
+        if ('speechSynthesis' in window) {
+            var utterance = new SpeechSynthesisUtterance(word);
+            utterance.voice = speechSynthesis.getVoices()[3];
+            speechSynthesis.speak(utterance);
+        } else {
+            alert('Speech synthesis is not supported in your browser. Please use a different browser.');
+        }
+    }
+
+    // Speak the instructions when the page loads
+    window.onload = function() {
+        pronounceWord('Take the mouse over the images');
+        
+        // Add event listeners to the images
+        document.querySelector('.alp').addEventListener('mouseenter', speakLetterA);
+        document.querySelector('.pic2').addEventListener('mouseenter', speakWordApple);
+    }
+</script>
+<script>
+    // Flag variables to track whether speech has been spoken
+    let appleSpoken = false;
+    let letterASpoken = false;
+
+    // Function to speak the word 'Apple'
+    function speakWordApple() {
+        if (!appleSpoken) {
+            pronounceWord('Apple');
+            appleSpoken = true;
+        }
+    }
+
+    // Function to reset the speech flag when mouse leaves the apple GIF card
+    function resetAppleSpeech() {
+        appleSpoken = false;
+    }
+
+    // Function to speak the letter 'A'
+    function speakLetterA() {
+        if (!letterASpoken) {
+            pronounceLetter('A');
+            letterASpoken = true;
+        }
+    }
+
+    // Function to reset the speech flag when mouse leaves the letter 'A' card
+    function resetLetterASpeech() {
+        letterASpoken = false;
+    }
+</script>
+
+<script>
+    // Flag variables to track whether speech has been spoken
+    let aeroplaneSpoken = false;
+
+    // Function to speak the word 'Aeroplane'
+    function speakWordAeroplane() {
+        if (!aeroplaneSpoken) {
+            pronounceWord('Aeroplane');
+            aeroplaneSpoken = true;
+        }
+    }
+
+    // Function to reset the speech flag when mouse leaves the aeroplane GIF card
+    function resetAeroplaneSpeech() {
+        aeroplaneSpoken = false;
+    }
+</script>
+
+
+
+  </body>
+</html>

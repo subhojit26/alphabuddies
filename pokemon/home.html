@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1510e22962.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>AlphaBuddies</title>
+    <link rel="stylesheet" href="src/output.css" />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        overflow: hidden;
+      }
+
+      nav {
+        background-color: rgba(25, 1, 43, 0.8);
+        backdrop-filter: blur(10px);
+        height: 800px;
+      }
+      .container {
+        padding: 20px;
+      }
+      .element {
+        margin-bottom: 2000px;
+      }
+      .dropdown-border {
+  border: 1px solid black;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="w-full morphnav bg-[#C78FF3] p-4 h-[80px]">
+      <div class="flex flex-col mx-auto">
+        <div class="flex py-2 justify-between my-auto">
+          <!-- Add an ID to the logo image -->
+          <img id="logo" src="src/singing.gif" height="75px" width="45px" />
+          <h1 class="font-bold text-3xl text-black mt-4 alphabbb">
+            AlphaBuddies
+          </h1>
+          <div class="lang">
+            <select
+              id="languageSelect"
+              class="bg-white rounded border-black border py-2 px-4"
+            >
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="hi">Hindi</option>
+              <option value="bn">Bengali</option>
+              <!-- Add more language options as needed -->
+            </select>
+          </div>
+          <a class="mb-4" href="/settings.html">
+            <i class="fa-solid fa-gear fa-xl"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+      
+      
+    <div class="container morph mt-10 mx-auto">
+      <p
+        class="m-5 font-bold text-4xl mx-auto text-center text-zinc-600 flex justify-center items-center"
+      >
+        <img
+          src="src/waving-pikachu.gif"
+          alt="Small Image"
+          style="width: 120px; height: 120px; margin-right: 5px"
+        />
+      </p>
+      <!-- Make 3 cards -->
+      <div class="grid grid-rows-2 gap-4 w-[90%] mx-auto">
+        <a href="/pokemon/alphabets.html" id="drawlearn">
+          <div
+            class="bg-[#C78FF3] morph1 p-4 rounded-lg text-black w-[100%] h-[200px]"
+          >
+            <h2 class="text-3xl font-semibold m-5">Draw and Learn</h2>
+            <div class="element flex flex-row justify-end my-auto">
+              <img
+                src="src/write.gif"
+                alt="Description of the image"
+                width="100"
+                height="80"
+              />
+            </div>
+          </div>
+        </a>
+        <div class="grid grid-cols-2 gap-4">
+          <a href="/pokemon/alphabet_speak.html" id="listenLearn">
+            <div
+              class="bg-[#4EE292] morph2 p-4 rounded-lg text-black w-[100%] h-[200px]"
+            >
+              <h2 class="text-3xl font-semibold m-5">Listen and Learn</h2>
+              <div class="flex flex-row justify-end my-auto">
+                <img
+                  src="/src/head.gif"
+                  alt="Description of the image"
+                  width="120"
+                  height="100"
+                />
+              </div>
+            </div>
+          </a>
+          <a href="taketest.html" id="takeTest">
+            <div
+              class="bg-[#FFD233] morph3 p-4 rounded-lg text-black w-[100%] h-[200px]"
+            >
+              <h2 class="text-3xl font-semibold m-5">Take Test</h2>
+              <div class="flex flex-row justify-end my-auto">
+                <img
+                  src="src/exam-unscreen.gif"
+                  alt="Description of the image"
+                  width="110"
+                  height="90"
+                />
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Translated texts stored in an object
+      const translations = {
+        en: {
+          listenLearn: "Listen and Learn",
+          takeTest: "Take Test",
+          drawlearn: "Draw",
+        },
+        es: {
+          listenLearn: "Escuchar y aprender",
+          takeTest: "Tomar prueba",
+          drawlearn: "Dibujar y aprender",
+        },
+        hi: {
+          listenLearn: "सुनो और सीखो",
+          takeTest: "परीक्षा दो",
+          drawlearn: "बनाओ और सीखो",
+        },
+        bn: {
+          listenLearn: "শুনুন এবং শেখুন",
+          takeTest: "পরীক্ষা নিন",
+          drawlearn: "আঁকো এবং শেখো",
+        },
+        // Add more translations for other languages as needed
+      };
+
+      const listenLearn = document.getElementById("listenLearn");
+      const takeTest = document.getElementById("takeTest");
+      const drawlearn = document.getElementById("drawlearn");
+      const languageSelect = document.getElementById("languageSelect");
+
+      // Function to speak translated text
+      function speakTranslatedText(text, language) {
+        if (text) {
+          const synth = window.speechSynthesis;
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = language;
+          synth.speak(utterance);
+        }
+      }
+
+      // Function to handle language change
+      function handleLanguageChange() {
+        const selectedLanguage = languageSelect.value;
+        localStorage.setItem("selectedLanguage", selectedLanguage);
+        translatePage(selectedLanguage);
+      }
+
+      // Function to translate page elements
+      function translatePage(language) {
+        const translatedListenLearn = translations[language].listenLearn;
+        const translatedTakeTest = translations[language].takeTest;
+        const translatedDrawlearn = translations[language].drawlearn;
+
+        listenLearn.setAttribute("title", translatedListenLearn);
+        takeTest.setAttribute("title", translatedTakeTest);
+        drawlearn.setAttribute("title", translatedDrawlearn);
+      }
+
+      // Listen for language change event
+      languageSelect.addEventListener("change", handleLanguageChange);
+
+      // Initialize page translation
+      const selectedLanguage = localStorage.getItem("selectedLanguage") || "en"; // Default to English if no language is stored
+      languageSelect.value = selectedLanguage;
+      translatePage(selectedLanguage);
+
+      // Speak translated text on mouse enter
+      listenLearn.addEventListener("mouseenter", function () {
+        const text = translations[languageSelect.value].listenLearn;
+        speakTranslatedText(text, languageSelect.value);
+      });
+
+      takeTest.addEventListener("mouseenter", function () {
+        const text = translations[languageSelect.value].takeTest;
+        speakTranslatedText(text, languageSelect.value);
+      });
+
+      drawlearn.addEventListener("mouseenter", function () {
+        const text = translations[languageSelect.value].drawlearn;
+        speakTranslatedText(text, languageSelect.value);
+      });
+    </script>
+    <script>
+      let audio = new Audio('/src/abcdef.mp3'); // Replace 'path_to_your_locally_downloaded_song.mp3' with the actual path to your song file
+      let isPlaying = false;
+  
+      // Function to play or pause the song
+      function toggleSong() {
+        if (isPlaying) {
+          audio.pause();
+          audio.currentTime = 0; // Reset audio playback position to the beginning
+        } else {
+          audio.play();
+        }
+        isPlaying = !isPlaying;
+      }
+  
+      // Add event listener to the logo image
+      document.getElementById('logo').addEventListener('click', toggleSong);
+    </script>
+  </body>
+</html>

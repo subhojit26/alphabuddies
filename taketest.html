@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1510e22962.js" crossorigin="anonymous"></script>
+    <title>AlphaBuddies</title>
+    <link rel="stylesheet" href="src/output.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        nav {
+            background-color: rgba(25, 1, 43, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        /* Define hover effect for cards */
+        .card:hover:after {
+            content: attr(aria-label);
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            /* Text-to-speech CSS */
+            speak: auto;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="w-full morphnav bg-[#C78FF3] p-4 h-[80px]">
+        <div class="flex flex-col mx-auto">
+            <div class="flex py-2 justify-between my-auto">
+              <a class="mb-4" href="home.html">
+                <i class="fa-solid fa-2xl fa-circle-left"></i>
+            </a>
+                <h1 class="font-bold text-3xl text-black mt-4 text-left">AlphaBuddies</h1>
+                <a class="mb-4" href="home.html">
+                    <i class="fa-solid fa-house fa-xl"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container morph mt-10  mx-auto">
+        <p class="m-5 font-bold text-4xl mx-auto text-center  text-zinc-600 flex justify-center items-center">
+            <img src="src/hello.gif" alt="Small Image" style="width: 80px; height: 80px; margin-right: 5px;" />
+        </p>
+        <div class="grid  grid-rows-2 gap-4 w-[90%] mx-auto">
+            <div class="grid grid-cols-2  gap-4">
+                <a href="alphabetstest.html" id="listenLearn">
+                    <!-- Define card with aria-label for spoken content -->
+                    <div class="bg-[#4EE292] morph2 p-4 rounded-lg text-black w-[100%] h-[200px] card"
+                        aria-label="">
+                        <h2 class="text-3xl font-semibold m-5">Drawing Test</h2>
+                        <div class="flex flex-row justify-end my-auto">
+                            <i class="fa-solid fa-2xl fa-spell-check"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="alphabetstest-listen.html" id="takeTest">
+                    <!-- Define card with aria-label for spoken content -->
+                    <div class="bg-[#FFD233] morph3 p-4 rounded-lg text-black w-[100%] h-[200px] card"
+                        aria-label="">
+                        <h2 class="text-3xl font-semibold m-5">Listening Test</h2>
+                        <div class="flex flex-row justify-end my-auto">
+                            <i class="fa-solid fa-2xl fa-headphones"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script/textToSpeech.js"></script>
+    <script>
+        // Translated messages stored in an object
+        const translations = {
+            en: {
+                home: "Home",
+                back: "Back",
+                message: "give test.",
+                drawingTest: "Drawing Test",
+                listeningTest: "Listening Test"
+            },
+            es: {
+                home: "Inicio",
+                back: "Atrás",
+                message: "Haga clic .",
+                drawingTest: "Prueba de Dibujo",
+                listeningTest: "Prueba de Audición"
+            },
+            hi: {
+                home: "ghar jaye",
+                back: "पीछे jaye",
+                message: "परीक्षा दो.",
+                drawingTest: "लिखित परीक्षा",
+                listeningTest: "मौखिक परीक्षा"
+            },
+            // Add translations for other languages as needed
+        };
+
+        // Function to speak a given text
+        function speak(text, language) {
+            // Check if SpeechSynthesis is supported
+            if ('speechSynthesis' in window) {
+                // Create a new instance of SpeechSynthesisUtterance
+                var utterance = new SpeechSynthesisUtterance(text);
+
+                // Set the language
+                utterance.lang = language;
+
+                // Speak the text
+                window.speechSynthesis.speak(utterance);
+            } else {
+                // Speech synthesis not supported
+                console.error("Speech synthesis not supported.");
+            }
+        }
+
+        // Function to speak the message only once after the page loads
+        function speakOnce(language) {
+            // Get the translated message based on the selected language
+            const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            const message = getMessage(selectedLanguage).message;
+
+            // Speak the message
+            speak(message, selectedLanguage);
+
+            // Remove the event listener to prevent speaking again
+            document.removeEventListener("DOMContentLoaded", speakOnce);
+        }
+
+        // Function to get the translated message based on the selected language
+        function getMessage(language) {
+            // Return the translated message based on the selected language
+            return translations[language] || translations['en']; // Default to English if translation not available
+        }
+
+        // Add event listener to speak the message once after the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            speakOnce(localStorage.getItem('selectedLanguage'));
+
+            // Add event listener to speak "home" in the selected language when hovering over the home button
+            const homeButton = document.querySelector(".fa-house");
+            homeButton.addEventListener("mouseenter", function () {
+                const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+                const homeText = translations[selectedLanguage].home;
+                speak(homeText, selectedLanguage);
+            });
+
+            // Add event listener to speak "back" in the selected language when hovering over the back button
+            const backButton = document.querySelector(".fa-circle-left");
+            backButton.addEventListener("mouseenter", function () {
+                const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+                const backText = translations[selectedLanguage].back;
+                speak(backText, selectedLanguage);
+            });
+
+            // Add event listeners to speak card content in the selected language when hovering over the cards
+            const drawingTestCard = document.getElementById('listenLearn');
+            drawingTestCard.addEventListener("mouseenter", function () {
+                const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+                const cardContent = translations[selectedLanguage].drawingTest;
+                speak(cardContent, selectedLanguage);
+            });
+
+            const listeningTestCard = document.getElementById('takeTest');
+            listeningTestCard.addEventListener("mouseenter", function () {
+                const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+                const cardContent = translations[selectedLanguage].listeningTest;
+                speak(cardContent, selectedLanguage);
+            });
+        });
+    </script>
+</body>
+
+</html>
